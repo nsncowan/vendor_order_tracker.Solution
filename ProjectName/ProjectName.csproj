@@ -1,0 +1,9 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <!-- <OutputType>Exe</OutputType> --> <!-- This is only needed if you have a user interface consisting of a Program.cs file with a Main() method. -->
+  </PropertyGroup>
+</Project>
+<!-- Navigate to the ProjectName.Tests directory -->
+<!-- Run the command $ dotnet restore -->
+<!-- This will create obj directories in both production and test projects. Do not touch this code -->
