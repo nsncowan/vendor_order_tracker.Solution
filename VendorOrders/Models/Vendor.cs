@@ -17,10 +17,32 @@ namespace VendorOrders.Models
       Orders = new List<Order>{};
     }
 
-    public static void ClearAll()
+    public static List<Vendor> GetAll()
+    {
+      return _vendorList;
+    }
+
+    public static Vendor Find(int searchId)
+    {
+      return _vendorList[searchId-1];
+    }
+
+    public void AddOrder(Order order)
+    {
+      Orders.Add(order);
+    }
+
+
+
+
+
+
+
+/*     public static void ClearAll()
     {
       _vendorList.Clear();
     }
-  }
+ */  
+ }
 }
 
