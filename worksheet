@@ -1,0 +1,21 @@
+Vendor class
+  Constructor:
+    name
+    business type?
+    list of orders for that vendor
+    vendor Id?
+  Static:
+    add vendors to a master list of vendors
+
+
+Order class
+  Constructor:
+    order item
+    price
+    add to static list
+  Static:
+    price per item
+    list items in order object
+
+
+
