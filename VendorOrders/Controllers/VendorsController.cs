@@ -14,6 +14,13 @@ namespace VendorOrders.Controllers
       return View();
     }
 
+    [HttpGet("/vendors/new")]
+    public ActionResult New()
+    {
+      return View();
+    }
+
+// this one creates and new vendor.
     [HttpPost("/vendors")]
     public ActionResult Create(string vendorName)
     {
