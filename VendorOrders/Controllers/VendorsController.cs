@@ -11,7 +11,7 @@ namespace VendorOrders.Controllers
     public ActionResult Index()
     {
       List<Vendor> vendorsList = Vendor.GetAll();
-      return View();
+      return View(vendorsList);
     }
 
     [HttpGet("/vendors/new")]
@@ -28,13 +28,13 @@ namespace VendorOrders.Controllers
       return RedirectToAction("Index");
     } 
 
-    // This one creates new Orders for a vendor, not new vendors:
-    [HttpPost("/vendors/{id}/orders")]
+// This one creates new Orders for a vendor.
+    [HttpPost("/vendors/{vendorId}/orders")]
     public ActionResult Create(int vendorId, string item, string itemQuantity)
     {
       Dictionary<string, object> model = new Dictionary<string, object>();
       Vendor targetVendor = Vendor.Find(vendorId);
-      Order newOrder = new Order(vendorId, item, itemQuantity);
+      Order newOrder = new Order(item, itemQuantity);
       targetVendor.AddOrder(newOrder);
       List<Order> vendorOrders = targetVendor.Orders;
       model.Add("orders", vendorOrders);
@@ -42,7 +42,7 @@ namespace VendorOrders.Controllers
       return View("Show", model);
     }
 
-    [HttpGet("/vendors/{id}")]
+    [HttpGet("/vendors/{vendorId}")]
     public ActionResult Show(int vendorId)
     {
       Dictionary<string, object> model = new Dictionary<string, object>();

@@ -15,14 +15,14 @@
     <h3>Here are all the Orders placed by this Vendor:</h3>
 
     <ol>
-    @foreach (Order item in @Model["items"])
+    @foreach (Order item in @Model["orders"])
     {
       <li>@item.OrderItem -- @item.ItemQuantity -- $@item.OrderPrice</li>
     }
     </ol>
 
-    <p><a href='/categories/@Model["vendor"].Id/items/new'>place an order for this vendor</a></p>
-    <p><a href='/categories'>Return to list of vendors</a></p>
+    <p><a href='/vendors/@Model["vendor"].Id/orders/new'>place an order for this vendor</a></p>
+    <p><a href='/vendors'>Return to list of vendors</a></p>
     <p><a href='/'>Return to Main Page</a></p>
   </body>
 </html>
