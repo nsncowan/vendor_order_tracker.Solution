@@ -17,7 +17,7 @@
     <ol>
     @foreach (Order item in @Model["orders"])
     {
-      <li>@item.OrderItem -- @item.ItemQuantity -- $@item.OrderPrice</li>
+      <li>@item.OrderItem -- @item.ItemQuantity -- $@item.GetOrderPrice()</li>
     }
     </ol>
 
