@@ -20,7 +20,6 @@ namespace VendorOrders.Controllers
       return View();
     }
 
-// this one creates and new vendor.
     [HttpPost("/vendors")]
     public ActionResult Create(string vendorName)
     {
@@ -28,7 +27,6 @@ namespace VendorOrders.Controllers
       return RedirectToAction("Index");
     } 
 
-// This one creates new Orders for a vendor.
     [HttpPost("/vendors/{vendorId}/orders")]
     public ActionResult Create(int vendorId, string item, string itemQuantity)
     {
