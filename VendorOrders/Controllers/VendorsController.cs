@@ -29,7 +29,7 @@ namespace VendorOrders.Controllers
     } 
 
     // This one creates new Orders for a vendor, not new vendors:
-    [HttpPost("/vendors/{vendorId}/orders")]
+    [HttpPost("/vendors/{id}/orders")]
     public ActionResult Create(int vendorId, string item, string itemQuantity)
     {
       Dictionary<string, object> model = new Dictionary<string, object>();
@@ -40,6 +40,17 @@ namespace VendorOrders.Controllers
       model.Add("orders", vendorOrders);
       model.Add("vendor", targetVendor);
       return View("Show", model);
+    }
+
+    [HttpGet("/vendors/{id}")]
+    public ActionResult Show(int vendorId)
+    {
+      Dictionary<string, object> model = new Dictionary<string, object>();
+      Vendor targetVendor = Vendor.Find(vendorId);
+      List<Order> vendorOrders = targetVendor.Orders;
+      model.Add("vendor", targetVendor);
+      model.Add("orders", vendorOrders);
+      return View(model);
     }
 
   }
