@@ -28,5 +28,19 @@ namespace VendorOrders.Controllers
       return RedirectToAction("Index");
     } 
 
+    // This one creates new Orders for a vendor, not new vendors:
+    [HttpPost("/vendors/{vendorId}/orders")]
+    public ActionResult Create(int vendorId, string item, string itemQuantity)
+    {
+      Dictionary<string, object> model = new Dictionary<string, object>();
+      Vendor targetVendor = Vendor.Find(vendorId);
+      Order newOrder = new Order(vendorId, item, itemQuantity);
+      targetVendor.AddOrder(newOrder);
+      List<Order> vendorOrders = targetVendor.Orders;
+      model.Add("orders", vendorOrders);
+      model.Add("vendor", targetVendor);
+      return View("Show", model);
+    }
+
   }
 }
