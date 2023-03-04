@@ -70,7 +70,7 @@ namespace VendorOrders.Tests
     }
 
     [TestMethod]
-    public void AddItem_AssociatesOrderWithVendor_OrderList()
+    public void AddOrder_AssociatesOrderWithVendor_OrderList()
     {
       string item = "bagel";
       int quantity = 5;
