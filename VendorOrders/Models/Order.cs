@@ -7,16 +7,16 @@ namespace VendorOrders.Models
     private static List<Order> _orderList = new List<Order> {};
     public string OrderItem { get; set; }
     public int ItemQuantity { get; set; }
+    public int Id { get; }
     public static int CostPerItem = 5;
     public int OrderPrice { get; set; }
-
-    // if i wanted to have multiple items each with their own price, would i set multiple static prices as fields here? then maybe I could have branching logic in  GetOrderPrice().
 
     public Order(string item, int itemQuantity)
     {
       OrderItem = item;
       ItemQuantity = itemQuantity;
       _orderList.Add(this);
+      Id = _orderList.Count;
     }
     
     public static List<Order> GetAll()
@@ -28,6 +28,11 @@ namespace VendorOrders.Models
     {
       OrderPrice = CostPerItem * ItemQuantity;
       return OrderPrice;
+    }
+
+    public static Order Find(int searchId)
+    {
+      return _orderList[searchId-1];
     }
 
     public static void ClearAll()

@@ -33,7 +33,7 @@ namespace VendorOrders.Tests
     }
 
     [TestMethod]
-    public void GetOrderCost_ReturnOrderCost_Int()
+    public void GetOrderPrice_ReturnOrderPrice_Int()
     {
       string item = "bagel";
       int quantity = 7;
