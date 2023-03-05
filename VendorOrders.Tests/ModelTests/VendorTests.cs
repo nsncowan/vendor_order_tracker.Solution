@@ -16,15 +16,16 @@ namespace VendorOrders.Tests
     [TestMethod]
     public void VendorConstructor_CreatesInstanceOfVendor_Vendor()
     {
-      Vendor testVendor = new Vendor("xyz bakery");
+      Vendor testVendor = new Vendor("xyz", "bakery");
       Assert.AreEqual(typeof(Vendor), testVendor.GetType());
     }
 
     [TestMethod]
     public void GetName_ReturnsName_String()
     {
-      string name = "xyz bakery";
-      Vendor testVendor = new Vendor(name);
+      string name = "xyz";
+      string description = "bakery";
+      Vendor testVendor = new Vendor(name, description);
 
       string result = testVendor.Name;
 
@@ -34,8 +35,9 @@ namespace VendorOrders.Tests
     [TestMethod]
     public void GetId_ReturnsVendorId_Int()
     {
-      string name = "xyz bakery";
-      Vendor testVendor = new Vendor(name);
+      string name = "xyz";
+      string description = "bakery";
+      Vendor testVendor = new Vendor(name, description);
 
       int result = testVendor.Id;
 
@@ -45,10 +47,12 @@ namespace VendorOrders.Tests
     [TestMethod]
     public void GetAll_ReturnsAllVendorObjects_VendorList()
     {
-      string name01 = "abc bakery";
-      string name02 = "xyz cafe";
-      Vendor testVendor1 = new Vendor(name01);
-      Vendor testVendor2 = new Vendor(name02);
+      string name01 = "abc";
+      string description01 = "bakery";
+      string name02 = "xyz";
+      string description02 = "cafe";
+      Vendor testVendor1 = new Vendor(name01, description01);
+      Vendor testVendor2 = new Vendor(name02, description02);
       List<Vendor> newList = new List<Vendor> { testVendor1, testVendor2 };
 
       List<Vendor> result = Vendor.GetAll();
@@ -59,10 +63,12 @@ namespace VendorOrders.Tests
     [TestMethod]
     public void Find_ReturnsCorrectVendor_Vendor()
     {
-      string name01 = "abc bakery";
-      string name02 = "xyz cafe";
-      Vendor testVendor1 = new Vendor(name01);
-      Vendor testVendor2 = new Vendor(name02);
+      string name01 = "abc";
+      string description01 = "bakery";
+      string name02 = "xyz";
+      string description02 = "cafe";
+      Vendor testVendor1 = new Vendor(name01, description01);
+      Vendor testVendor2 = new Vendor(name02, description02);
 
       Vendor result = Vendor.Find(2);
 
@@ -76,8 +82,9 @@ namespace VendorOrders.Tests
       int quantity = 5;
       Order testOrder = new Order(item, quantity);
       List<Order> newList = new List<Order> { testOrder };
-      string name = "xyz cafe";
-      Vendor testVendor = new Vendor(name);
+      string name = "xyz";
+      string description = "cafe";
+      Vendor testVendor = new Vendor(name, description);
       testVendor.AddOrder(testOrder);
 
       List<Order> result = testVendor.Orders;
